@@ -10,7 +10,7 @@ const logger = require("morgan");
 const db = require("./models");
 
 // Logger - morgan is used to log our HTTP Requests. 
-// By setting morgan to 'dev' the :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+// By setting morgan to 'dev' the :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, git and uncolored for all other codes.
 app.use(logger("dev"));
 
 // Define middleware here

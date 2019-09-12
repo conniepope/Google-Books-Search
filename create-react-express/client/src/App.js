@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Saved from "./components/Saved";
+import Results from "./components/Results"
 import "./App.css";
 
 class App extends Component {
@@ -15,7 +16,12 @@ class App extends Component {
           <Search>
 
           </Search>
-          <Saved></Saved>
+          <Results>
+
+          </Results>
+          <Saved>
+            
+          </Saved>
           {/* <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2> */}
         </div>
