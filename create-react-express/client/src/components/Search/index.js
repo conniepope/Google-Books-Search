@@ -4,11 +4,14 @@ import "./style.css";
 
 function Search() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a className="navbar-brand" href="/">
-        React Reading List
-      </a>
-    </nav>
+    <div className="container">
+      <form class="form-group">
+          <label>Book Search</label>
+          <input type="text" class="form-control" id="bookSearch"></input>
+        
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>    
+    </div>
   );
 }
 

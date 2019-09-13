@@ -3,19 +3,10 @@ import "./style.css";
 
 function Header() {
   return ( 
-  <div class="header">
-    <ul class="nav">
-      <li class="nav-item">
-        <h1 class="title"> Google Books </h1>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Search</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Saved</a>
-      </li>
-    </ul>
-  </div>
+    <div class="jumbotron">
+        <h1 class="display-4">(React) Google Books Search</h1>
+        <p class="lead">Search for and Save Books of Interest</p>
+    </div>
   )
 }
 

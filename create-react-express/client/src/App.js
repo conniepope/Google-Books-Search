@@ -1,36 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Saved from "./pages/SavedPage";
+import Search from "./pages/SearchPage";
+import Nav from "./components/Nav";
 import Header from "./components/Header";
-import Search from "./components/Search";
-import Saved from "./components/Saved";
-import Results from "./components/Results"
-import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <Header>
-
-          </Header>
-          <Search>
-
-          </Search>
-          <Results>
-
-          </Results>
-          <Saved>
-            
-          </Saved>
-          {/* <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2> */}
-        </div>
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
+function App() {
+  return (
+    <Router>
+      <div>
+        <Nav />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/books" component={Search} />
+          <Route exact path="/books/:id" component={Saved} />
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;
