@@ -5,11 +5,11 @@ import "./style.css";
 function Search() {
   return (
     <div className="container">
-      <form class="form-group">
+      <form className="form-group">
           <label>Book Search</label>
-          <input type="text" class="form-control" id="bookSearch"></input>
+          <input type="text" className="form-control" id="bookSearch"></input>
         
-          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="submit" className="btn btn-primary">Search</button>
       </form>    
     </div>
   );
