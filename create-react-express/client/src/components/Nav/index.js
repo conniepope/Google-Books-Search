@@ -3,16 +3,16 @@ import "./style.css";
 
 function Nav() {
   return ( 
-  <div class="header">
-    <ul class="nav">
-      <li class="nav-item">
-        <h1 class="title"> Google Books </h1>
+  <div className="header">
+    <ul className="nav">
+      <li className="nav-item">
+        <h1 className="title"> Google Books </h1>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../pages/Search">Search</a>
+      <li className="nav-item">
+        <a className="nav-link" href="../pages/Search">Search</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../pages/Saved">Saved</a>
+      <li className="nav-item">
+        <a className="nav-link" href="../pages/Saved">Saved</a>
       </li>
     </ul>
   </div>

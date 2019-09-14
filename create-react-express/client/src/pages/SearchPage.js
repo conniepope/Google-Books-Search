@@ -14,23 +14,23 @@ class SearchPage extends Component {
         link: ""
     };
 
-    // componentDidMount() {
-    //     this.loadBooks();
-    //   }
+    componentDidMount() {
+        this.loadBooks();
+      }
     
-    //   loadBooks = () => {
-    //     API.getBooks()
-    //       .then(res =>
-    //         this.setState({ 
-    //         books: res.data, 
-    //         title: "", 
-    //         authors: [],
-    //         description: "",
-    //         image: "",
-    //         link: ""})
-    //       )
-    //       .catch(err => console.log(err));
-    //   };
+      loadBooks = () => {
+        API.getBooks()
+          .then(res =>
+            this.setState({ 
+            books: res.data, 
+            title: "", 
+            authors: [],
+            description: "",
+            image: "",
+            link: ""})
+          )
+          .catch(err => console.log(err));
+      };
 
       searchBooks = query => {
         API.search(query)
