@@ -1,83 +1,93 @@
 import React, { Component } from "react";
 import Search from "../components/Search";
 import Results from "../components/Results";
+// import { List } from "../components/List/";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 
 class SearchPage extends Component {
     state = {
         books: [],
         title: "",
-        authors: [],
-        description: "",
-        image: "",
-        link: ""
     };
 
-    componentDidMount() {
-        this.loadBooks();
-      }
-    
-      loadBooks = () => {
-        API.getBooks()
-          .then(res =>
-            this.setState({ 
-            books: res.data, 
-            title: "", 
-            authors: [],
-            description: "",
-            image: "",
-            link: ""})
-          )
-          .catch(err => console.log(err));
-      };
+    // getBooks = () => {
+    //   console.log("getBooks" + this.state.title);
+    //   API.getBooks(this.state.title)
+    //     .then(res =>
+    //       this.setState({ 
+    //         books: res.data
+    //     }) 
+    //     )
+    //     .catch(() => {
+    //       console.log("Could not find a book by this name. Please try again.")
 
-      searchBooks = query => {
-        API.search(query)
-          .then(res => this.setState({ results: res.data.data }))
-          .catch(err => console.log(err));
-      };
+    //       this.setState({
+    //         books: [],
+    //       });           
+
+    //     })
+    // };
+
+    // searchBooks = title => {
+    //   API.search(title)
+      
+    //     .then(res => 
+    //       {console.log(title);
+    //       this.setState({ books: res.data.data })})
+    //     .catch(err => console.log(err));
+    // };
     
-      // not sure what this one is for
-      handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-        });
-      };
+    handleInputChange = event => {
+      const { name, value } = event.target;
+      // console.log("handleInputChange" + value)
+      this.setState({
+        [name]: value
+      });
+    };
     
     handleFormSubmit = event => {
-        event.preventDefault();
-        if (this.state.title && this.state.authors) {
-            API.getBooks({
-                title: this.state.title,
-                authors: this.state.authors,
-                description: this.state.description,
-                image: this.state.image,
-                link: this.state.link
-            })
-            .then(res => this.loadBooks())
-            .catch(err => console.log(err));
-        }
-    };
+      event.preventDefault();
+      console.log("handleFormSubmit" + this.state.title)
+      if (this.state.title) {
+          API.getBooks(this.state.title)
+          .then(res => {this.setState({ books: res.data });
+          // console.log(res.data)
+          console.log(this.state.books)
+        })
+        .catch(err => console.log(err)); 
+      }
+    }
+    
+  
 
     render() {
         return (
             <div className="container">
-                <Search>
+                <Search 
+                  handleInputChange={this.handleInputChange}
+                  handleFormSubmit={this.handleFormSubmit}
+                  title={this.state.title}>
                 </Search>
 
-                <h1>Results</h1>
-                {this.state.books.length ? (
-                    <Results>
-                    {this.state.books.map(book => (
-                        <Link to={"/books/" + book._id}>
-                        </Link>
-                    ))}
-                    </Results>
 
+                <h4>Results</h4>
+                {console.log("results", this.state.books.length)}
+                {this.state.books.length ? (
+                  <Results>
+                  {console.log("list", this.state.books)}
+                    {this.state.books.map(book => (
+                      <div>
+                      key={book.id},
+                      title={book.volumeInfo.title},
+                      authors={book.volumeInfo.authors},
+                      description={book.volumeInfo.description},
+                      image={book.volumeInfo.imageLinks.thumbnail},
+                      link={book.volumeInfo.infoLink}
+                      </div>
+                      ))}
+                      </Results>
                 ) : (
-                <h3>No Results to Display</h3>
+                <h4>No Results to Display</h4>
                 )}
             </div>
                 

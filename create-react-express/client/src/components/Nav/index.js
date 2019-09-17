@@ -9,10 +9,10 @@ function Nav() {
         <h1 className="title"> Google Books </h1>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="../pages/Search">Search</a>
+        <a className="nav-link" href="../pages/SearchPage">Search</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="../pages/Saved">Saved</a>
+        <a className="nav-link" href="../pages/SavedPage">Saved</a>
       </li>
     </ul>
   </div>

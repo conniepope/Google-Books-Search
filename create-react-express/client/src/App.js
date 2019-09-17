@@ -5,6 +5,7 @@ import SearchPage from "./pages/SearchPage";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
+import Results from "./components/Results";
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={SearchPage} />
-          <Route exact path="/books" component={SearchPage} />
-          <Route exact path="/books/:id" component={SavedPage} />
+          <Route exact path="/searchPage" component={Results} />
+          <Route exact path="/savedPage" component={SavedPage} />
           <Route component={NoMatch} />
         </Switch>
       </div>
